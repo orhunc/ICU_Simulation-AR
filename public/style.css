@@ -1,0 +1,10 @@
+#startX {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  background-color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}

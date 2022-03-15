@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+	<meta name='mobile-web-app-capable' content='yes'>
+	<meta name='apple-mobile-web-app-capable' content='yes'>
+	<link rel='icon' type='image/png' sizes='32x32' href='favicon-32x32.png'>
+	<link rel='icon' type='image/png' sizes='96x96' href='favicon-96x96.png'>
+	<link rel='stylesheet' href='style.css'>
+
+	<title>Prototype ICU</title>
+	<!-- includedodecahedron A-Frame -->
+	<script src="https://aframe.io/releases/1.2.0/aframe.min.js">
+
+	</script>
+	<!-- include Resonance Audio -->
+	<script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js">
+	</script>
+	<script src="components/timeline.js">
+	</script>
+	<script src="components/resonanceScene.js">
+	</script>
+	<script src="components/startExperience.js">
+	</script>
+	<script src="components/heartrate.js">
+	</script>
+  <script src="components/noise.js">
+  </script>
+  <script src="components/camswitch.js">
+  </script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+	<div id="startX">
+		<button id="start">
+      Start Experience
+    </button>
+    <button id = "pairing">
+      Pair Device
+    </button>
+  </div>
+
+
+
+  
+	<a-scene background="color: white" heartratemonitor pairdevice resonancesystem timeline serverlogger startexperience camswitch stats inspector>
+		<a-assets timeout="5000">
+			<!-- preload sounds and assets here -->
+      <audio id="tutorial" src='resources/tutorial.mp3' onended="" preload="auto"></audio>
+      <audio id="t_IValarm2" src='resources/IV_alarm2.wav'></audio>
+      <audio id="IVpump99" src='resources/IVpump.wav'></audio>
+      <audio id="ekgBeep99" src='resources/singleEKGbeepPREsilence2s.wav'></audio>
+      <audio id="goodwork" src='resources/goodwork.ogg'></audio>
+
+      <audio id="ekgBeep1" src='resources/singleEKGbeepPREsilence2s.wav'></audio> <!-- duration 750ms for 80bpm -->
+      <audio id="ekgBeep2" src='resources/singleEKGbeepPREsilence2s.wav'></audio> <!-- duration 1200ms for 50bpm -->
+      <audio id="ekgBeep3" src='resources/singleEKGbeepPREsilence2s.wav'></audio>
+      <audio id="ekgBeep4" src='resources/singleEKGbeepPREsilence2s.wav' ></audio>
+      <audio id="IVpump1" src='resources/IVpump.wav'></audio>
+      <audio id="IVpump2" src='resources/IVpump.wav'></audio>
+      <audio id="IVpump3" src='resources/IVpump.wav'></audio>
+      <audio id="IVpump4" src='resources/IVpump.wav'></audio>
+      <audio id="IValarmA1" src='resources/IV_alarm1.wav'></audio>
+      <audio id="IValarmB1" src='resources/IV_alarm2.wav'></audio>
+      <audio id="IValarmA2" src='resources/IV_alarm1.wav'></audio>
+      <audio id="IValarmB2" src='resources/IV_alarm2.wav'></audio>
+      <audio id="IValarmA3" src='resources/IV_alarm1.wav'></audio>
+      <audio id="IValarmB3" src='resources/IV_alarm2.wav'></audio>
+      <audio id="IValarmA4" src='resources/IV_alarm1.wav'></audio>
+      <audio id="IValarmB4" src='resources/IV_alarm2.wav'></audio>
+      <audio id="coughing1" src='resources/coughing1.ogg'></audio>
+      <audio id="coughing2" src='resources/coughing1.ogg'></audio>
+      <audio id="coughing3" src='resources/coughing1.ogg'></audio>
+      <audio id="coughing4" src='resources/coughing1.ogg'></audio>
+      <audio id="telephone" src='resources/telephone.wav'></audio>
+      <audio id="hello_lowQ" src='resources/hello_lowQ.wav'></audio>
+      <audio id="ekgFlatline1" src='resources/EKGflatlineAlarm.ogg'></audio>
+      <audio id="ekgFlatline2" src='resources/EKGflatlineAlarm.ogg'></audio>
+      <audio id="ekgFlatline3" src='resources/EKGflatlineAlarm.ogg'></audio>
+      <audio id="ekgFlatline4" src='resources/EKGflatlineAlarm.ogg'></audio>
+      <audio id="roomfan" src='resources/ceilingfan.ogg'></audio>
+      <img id="hospital360" src='resources/hospital.jpeg'></img>
+		</a-assets>
+
+    	<!-- define a simple camera -->
+		<a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0">
+			<a-entity cursor="fuse: true; fuseTimeout: 1000" position="0 0 -0.1" geometry="primitive: circle; radius: 0.003"
+			 material="color: black; shader: flat" raycaster="interval: 500; objects: [data-raycastable]">
+			</a-entity>
+		</a-entity>
+
+    <!-- spectator cam -->
+    <a-entity camera="active: false" position="0 4 0" rotation="-90 0 0"></a-entity>
+
+
+    <!-- ----TUTORIAL CONTENT---- -->
+    <a-entity id="tutorialcontainer" visible="false">
+       <!-- narrator -->
+      <a-entity id="s_tutorial" position='-0.1 1.7 -0.5' narrator resonancesource="src: #tutorial; autoplay: false"></a-entity>
+      <!-- tutorial patient -->
+      <a-entity id="t_patient" visible="false" position='+1.5 1.3 -1.5' patient='id:99; ekg:true; hr: 63; ivpump: true; sounds: #t_IValarm2' data-raycastable raycasterlisten></a-entity>
+    </a-entity>
+    
+
+
+    <!-- ----ANCHORING CONTENT---- -->
+    <a-entity id="anchoringcontainer" visible="false">
+    </a-entity>
+
+
+    <!-- ----MAIN SCENE CONTENT---- -->
+    <a-entity id="mainscenecontainer" visible="false">
+      <!-- TODO picture on sphere for demo purposes -->
+      <a-sphere radius=9 src='#hospital360' rotation="0 -90 0" position='0 1.6 0' material='side: back'></a-sphere>
+      
+      <!-- here define patients, need to be data-raycastable for cursor interaction and raycaster-listen for interaction-->
+      <!-- animation box test <a-box position='-0.5 1.5 -1' animation="property: object3D.position.x; to: -1.0; dur: 1000; dir: alternate; easing: easeInOutElastic; loop: true" material='color: blue;' depth='0.2' height='0.2' width='0.2' data-raycastable raycaster-listen patient='id:1'></a-box>
+      -->
+      
+      <!-- Patient 1 -->      
+      <a-entity position='-2 1.3 -2' patient='id:1; ekg:false; hr: 50; ivpump: false; sounds: #coughing1, #ekgFlatline1, #IValarmB1' data-raycastable raycasterlisten></a-entity>
+
+      <!-- Patient 2 -->
+      <a-entity position='2.5 1.3 -2' patient='id:2; ekg:false; hr: 80, ivpump: false; sounds: #coughing2' data-raycastable raycasterlisten></a-entity>
+
+      <!-- Patient 3 -->
+      <a-entity position='3 1.3 3.5' patient='id:3; ekg:true; hr: 45; ivpump: true; sounds: #coughing3, #IValarmB3' data-raycastable raycasterlisten></a-entity>  
+
+      <!-- Patient 4 -->
+      <a-entity position='-4 1.3 4' patient='id:4; ekg:true; hr: 72; sounds: #coughing4, #IValarmB4, #ekgFlatline4' data-raycastable raycasterlisten></a-entity>   
+
+
+      <!-- ENVIRONMENTAL SOUNDS -->
+      <a-box id='phone' position='-4.9 1.6 2' material='color: green; opacity: 0.6' depth='0.1' height='0.2' width='0.1' resonancesource="src: #telephone;" telephone data-raycastable raycasterlisten></a-box>
+      <a-box id='ceilingfan' position='1 2.8 0' material='color: green; opacity: 0.6' depth='0.1' height='0.2' width='0.1' resonancesource="src: #roomfan; loop: true, gain: 2; width: 180"></a-box>
+
+      <!-- here define room with wireframe outlines for reference CHANGES NEED TO BE MIRRORED IN resonanceScene.js
+      "20 m² per bed for common rooms" according to Valentin, Andreas & Ferdinande, Patrick. (2011). Recommendations on basic requirements for intensive care units: Structural and organizational aspects. Intensive Care Medicine. 37. 1575-1587. 10.1007/s00134-011-2300-7.
+      using 80 m² for now -->
+      <a-box position='0 1.5 0' depth='8' height='3' width='10' material='color: green; side: back; wireframe: true'></a-box>
+    </a-entity>
+	</a-scene>
+
+
+</body>
+
+</html>

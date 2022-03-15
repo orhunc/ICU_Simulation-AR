@@ -1,0 +1,32 @@
+1128.5999999996275,starttime
+7111.899999999441,tutorial_start
+28114.89999999944,Tutorial_problem
+53663.39999999944,Tutorial_problem - solved succesfull
+69664.09999999963,tutorial_end
+69664.70000000019,anchoring_start
+94666.79999999981,anchoring_end
+94667.79999999981,scene_start
+224672.7000000002,Patient 1 coughs
+176682.2000000002,Patient 1 coughs - solved unsuccessfull
+109673,Patient 1 coughs again
+119679.09999999963,Patient 1 coughs again - solved unsuccessfull
+243672.89999999944,Patient 2 coughs
+252055,Patient 2 coughs - solved succesfull
+136672.39999999944,Patient 1 IV alarm
+144168,Patient 1 IV alarm - solved succesfull
+184675.2999999998,Patient 3 coughs
+187638.59999999963,Patient 3 coughs - solved succesfull
+179676.09999999963,Patient 4 coughs
+187678.7999999998,Patient 2 coughs - solved unsuccessfull
+194679.89999999944,Patient 4 coughs - solved unsuccessfull
+194680.09999999963,Patient 4 IV alarm
+194688.59999999963,Patient 4 IV alarm - solved unsuccessfull
+234716.89999999944,Patient 1 coughs - solved succesfull
+252673.2999999998,Patient 3 IV alarm
+219672.7999999998,Patient 4 flatline could be terminal
+257763.59999999963,Patient 3 IV alarm - solved succesfull
+231069.39999999944,Patient 4 flatline could be terminal - solved succesfull
+249687.09999999963,Patient 3 IV alarm - solved unsuccessfull
+235674.5,Patient 1 flatline could be terminal
+243359.7999999998,Patient 1 flatline could be terminal - solved succesfull
+264673.2000000002,scene_end
