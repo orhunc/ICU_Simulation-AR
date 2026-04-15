@@ -4,7 +4,7 @@
 
 Built with Node.js, A-Frame, and Resonance Audio.
 
-![ICU Simulation Banner](images/icu_image-banner.jpg)
+<img src="images/icu_image-banner.jpg" alt="ICU Simulation Banner" width="600">
 
 ## Project Overview
 
@@ -14,13 +14,11 @@ The COVID-19 pandemic highlighted the special strain healthcare workers are put 
 
 ## Demo
 
-[![ICU Simulation Demo](images/icu-setup.jpg)](https://vimeo.com/689656425)
-
-*Click the image to watch the demo on Vimeo. Put on headphones to hear the 3D spatial audio.*
+[▶️ Watch the demo on Vimeo](https://vimeo.com/689656425) *(put on headphones to hear the 3D spatial audio)*
 
 ## Technical Stack
 
-![Software](images/icu-software.jpg)
+<img src="images/icu-software.jpg" alt="Software" width="500">
 
 **Node.js + A-Frame:** The game runs as a web application using A-Frame, an open-source web framework for building VR/AR experiences. The mobile phone's inbuilt sensors were additionally used to control the simulation.
 
@@ -35,6 +33,10 @@ Before the simulation started, the participant was introduced with a tutorial th
 ## Findings
 
 The experiment was accompanied by surveys to verify the physiological data. Survey results showed that participants' awareness of healthcare worker stress levels increased significantly. The increasing number of patient events induced a measurable rise in heart rate, predominantly a sign of elevated stress. Participants could localize the 3D spatial sounds with high accuracy, making such sounds highly suitable for AR/VR applications. The experiment also established that even when relying mostly on audio stimuli with minimal visual input, high stress levels can be generated.
+
+## Setup
+
+<img src="images/icu-setup.jpg" alt="Testing Setup" width="500">
 
 ## Team
 
