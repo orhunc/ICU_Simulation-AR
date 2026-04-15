@@ -33,12 +33,14 @@ This project was made within the *Introduction to Physiological Computing* cours
 
 Before the simulation started, the participant was introduced with a tutorial that calmed down and prepared them for the scene. Once the simulation began, an increasing number of "patient events" manipulated participants' stress levels over the course of the game. Each patient had different audio stimuli and an irregular treatment duration. Participants depended on 3D spatial sounds to orient themselves in the scene and find the patient that needed treatment. Heart rate data from the Polar Belt was saved after each event.
 
+## Setup
+
+<img src="images/icu-setup.jpg" alt="Testing Setup" width="500">
+
 ## Findings
 
 The experiment was accompanied by surveys to verify the physiological data. Survey results showed that participants' awareness of healthcare worker stress levels increased significantly. The increasing number of patient events induced a measurable rise in heart rate, predominantly a sign of elevated stress. Participants could localize the 3D spatial sounds with high accuracy, making such sounds highly suitable for AR/VR applications. The experiment also established that even when relying mostly on audio stimuli with minimal visual input, high stress levels can be generated.
 
-## Setup
 
-<img src="images/icu-setup.jpg" alt="Testing Setup" width="500">
 
 
