@@ -12,9 +12,7 @@ Developed as part of the module "Introduction to Physiological Computing" at TU 
 
 The COVID-19 pandemic highlighted the special strain healthcare workers are put under. This project aimed to further understanding and awareness of that problem by exploring the emotional reaction, stress levels, and performance of non-professionals when exposed to isolated aspects of ICU work: stress through environmental and occupational sound and increasing exigencies. We measured emotions and cognitive performance via heart rate data and game metrics while the user was put under increasing stress in a mobile, cross-platform AR simulation.
 
-## Team
-
-Orhun Caglidil, Damian Dominik Martinez, Janine Güldner (TU Berlin)
+Team: Orhun Caglidil, Damian Dominik Martinez, Janine Güldner (TU Berlin)
 This project was made within the "Introduction to Physiological Computing" course, accompanied by the Affective Computing seminar by  Dr.-Ing. Jan-Niklas Voigt-Antons, Quality and Usability Lab, TU Berlin
 
 ## Demo
